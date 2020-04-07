@@ -1,0 +1,46 @@
+/usr/lib/jvm/jdk-8u201/jre/../bin/javadoc
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/joel/NetBeansProjects/Proyecto1/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2020. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Proyecto1 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/home/joel/NetBeansProjects/Proyecto1/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Proyecto1 1.0-SNAPSHOT API'
+Naves
+Guerreros
+Constructores
+Tablero
+Diseños
+Main
+Planetas
+/home/joel/NetBeansProjects/Proyecto1/src/main/java = 1585854938000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/overview-tree.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/index.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/overview-frame.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/constant-values.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/allclasses-noframe.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/script.js = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/overview-summary.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/stylesheet.css = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/package-list = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/help-doc.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/deprecated-list.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/index-all.html = 1585855690000
+/home/joel/NetBeansProjects/Proyecto1/target/site/apidocs/allclasses-frame.html = 1585855690000
