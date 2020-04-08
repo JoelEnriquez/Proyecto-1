@@ -5,13 +5,25 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DiseñoPlanetas {
+    
+    private String nombreJ1;
+    private String nombreJ2;
+    private int planetasNeut;
+    private int neutralesEdit;
+    private int numPlanetasTotales;
+    private final int NUMERO_JUGADORES = 2;
+    
+    public DiseñoPlanetas(String nombreJ1, String nombreJ2, int planetasNeut, int neutralesEdit, int numPlanetasTotales){
+        this.nombreJ1 = nombreJ1;
+        this.nombreJ2 = nombreJ2;
+        this.planetasNeut = planetasNeut;
+        this.neutralesEdit = neutralesEdit;
+        this.numPlanetasTotales = numPlanetasTotales;
+}
 
     Scanner leer = new Scanner(System.in);
-
-    DiseñoMapa diseñarPlanetas = new DiseñoMapa();
-    Planeta[] planetasTotales = diseñarPlanetas.planetasTotales();
-    
-    
+    Planeta[] planetasTotales = new Planeta[numPlanetasTotales];
+     
 
     private int probabilidadAparicion() {
         int probabilidadAparicion = 0;
@@ -203,25 +215,25 @@ public class DiseñoPlanetas {
 
     public void editarBases() {
         //Nos permite editar las primeras dos posiciones del arreglo, que corresponder al numero de jugadores.
-        for (int i = 0; i < diseñarPlanetas.getNumeroJugadores(); i++) {
+        for (int i = 0; i < NUMERO_JUGADORES; i++) {
             planetasTotales[i] = instanciarPlaneta();
         }
 
-        if (diseñarPlanetas.getPlanetasNeutrales() == diseñarPlanetas.getNeutralesParaEditar()) { //Solo neutrales manuales
-            for (int i = diseñarPlanetas.getNumeroJugadores(); i < diseñarPlanetas.getPlanetasNeutrales(); i++) {
+        if (planetasNeut == neutralesEdit) { //Solo neutrales manuales
+            for (int i = NUMERO_JUGADORES; i < numPlanetasTotales; i++) {
                 planetasTotales[i] = instanciarPlaneta();
             }
 
-        } else if (diseñarPlanetas.getNeutralesParaEditar() == 0) {//Solo neutrales aleatorios
-            for (int i = diseñarPlanetas.getNumeroJugadores(); i < diseñarPlanetas.getPlanetasNeutrales(); i++) {
+        } else if (neutralesEdit == 0) {//Solo neutrales aleatorios
+            for (int i = NUMERO_JUGADORES; i < numPlanetasTotales; i++) {
                 planetasTotales[i] = instanciarAleatorios();
             }
         } else { //Planetas neutrales que se editan y aleatorios
-            for (int i = diseñarPlanetas.getNumeroJugadores(); i < diseñarPlanetas.getNeutralesParaEditar(); i++) {
+            for (int i = NUMERO_JUGADORES; i < NUMERO_JUGADORES+neutralesEdit; i++) {
                 planetasTotales[i] = instanciarPlaneta();
             }
 
-            for (int i = diseñarPlanetas.getNumeroJugadores() + diseñarPlanetas.getNeutralesParaEditar(); i < diseñarPlanetas.numeroPlanetasTotales(); i++) {
+            for (int i = NUMERO_JUGADORES+neutralesEdit; i < numPlanetasTotales; i++) {
                 planetasTotales[i] = instanciarAleatorios();
             }
         }

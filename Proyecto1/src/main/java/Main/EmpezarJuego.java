@@ -119,9 +119,10 @@ public class EmpezarJuego {
                             }
                         }
                         
-                        //DiseñoMapa diseñoMapa = new DiseñoMapa(filas, columnas, planetasNeutrales, neutralesParaEditar, jugador1, jugador2);
-                        DiseñoMapa diseñoMapa = new DiseñoMapa();
-                        diseñoMapa.setNombreJugador1(jugador1);
+                        System.out.println("");
+                        DiseñoMapa diseñoMapa = new DiseñoMapa(filas, columnas, planetasNeutrales, neutralesParaEditar,jugador1, jugador2);
+                        diseñoMapa.ejecutarTodo();
+                        /*diseñoMapa.setNombreJugador1(jugador1);
                         diseñoMapa.setNombreJugador2(jugador2);
                         diseñoMapa.setFilas(filas);
                         diseñoMapa.setColumnas(columnas);

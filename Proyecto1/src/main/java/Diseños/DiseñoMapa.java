@@ -9,11 +9,12 @@ public class DiseñoMapa {
     private int planetasNeutrales;
     private int neutralesParaEditar;
     private final int NUMERO_JUGADORES=2;
+    private int numeroPlanetasTotales;
     private String nombreJugador1;
     private String nombreJugador2;
     
 
-    /*public DiseñoMapa(int filas, int columnas, int planetasNeutrales, int neutralesParaEditar, String nombreJugador1, String nombreJugador2) {
+    public DiseñoMapa(int filas, int columnas, int planetasNeutrales, int neutralesParaEditar, String nombreJugador1, String nombreJugador2) {
         this.filas = filas;
         this.columnas = columnas;
         this.planetasNeutrales = planetasNeutrales;
@@ -21,7 +22,8 @@ public class DiseñoMapa {
         this.nombreJugador1 = nombreJugador1;
         this.nombreJugador2 = nombreJugador2;
     }
-
+    
+/*
     public DiseñoMapa() {
         this.filas = 0;
         this.columnas = 0;
@@ -84,8 +86,10 @@ public class DiseñoMapa {
     }
     
     public int numeroPlanetasTotales(){
-        return NUMERO_JUGADORES + planetasNeutrales;
+        return numeroPlanetasTotales = NUMERO_JUGADORES + planetasNeutrales;
     }
+    
+    DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales,neutralesParaEditar, numeroPlanetasTotales);
 
     public Planeta[] planetasTotales() { //Creacion de un Arreglo de Planetas con el tamaño total de Planetas
         Planeta[] planetas = new Planeta[numeroPlanetasTotales()];
@@ -93,9 +97,7 @@ public class DiseñoMapa {
     }
     
     public void ejecutarTodo(){
-        DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas();
         nuevoPlaneta.editarBases();
-        
     }
 
    /* public boolean ausenciaAleatoridad() {

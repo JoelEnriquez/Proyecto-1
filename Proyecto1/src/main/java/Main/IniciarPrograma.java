@@ -6,15 +6,13 @@ public class IniciarPrograma {
 
     public static void main(String[] args) {
         System.out.println("Bienvenido a Konquest!");
-        //EmpezarJuego empezar = new EmpezarJuego();
-        //empezar.iniciar();
+        EmpezarJuego empezar = new EmpezarJuego();
+        empezar.iniciar();
         
         //Mapa mapa = new Mapa(30,600,6,);
         //ImprimirTablero imprimir = new ImprimirTablero();
         //imprimir.dibujarMapa(mapa);
-        
-        DiseñoPlanetas diseño = new DiseñoPlanetas();
-        diseño.editarBases();
+
     }
 }
 

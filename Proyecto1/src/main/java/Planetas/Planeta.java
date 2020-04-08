@@ -18,8 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
     private Guerrero[] guerreros;
     private Nave[] naves;
     private Constructor[] constructor;
-    
-    
+
 
     public Planeta(String nombre, double porcentajeMuerte, int cantidadDinero, int cantidadConstructores, int cantidadNaves, int cantidadGuerreros) {
         this.nombre = nombre;
