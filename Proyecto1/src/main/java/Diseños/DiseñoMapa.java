@@ -28,7 +28,9 @@ public class DiseñoMapa {
 
     public Planeta[] ejecutarNuevoPlaneta() {
         Planeta[] planetasNuevos = new Planeta[numeroPlanetasTotales];
-        DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales, neutralesParaEditar, numeroPlanetasTotales());
+        
+        DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales, neutralesParaEditar, numeroPlanetasTotales());  
+        nuevoPlaneta.asignarTamaño();
         nuevoPlaneta.editarBases();
 
         return planetasNuevos;

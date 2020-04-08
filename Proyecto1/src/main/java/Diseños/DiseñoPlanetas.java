@@ -22,11 +22,17 @@ public class DiseñoPlanetas {
 }
 
     Scanner leer = new Scanner(System.in);
-    Planeta[] planetasTotales = new Planeta[getNumPlanetasTotales()];
     
+    Planeta[] planetasTotales;
     
-     
+    public void asignarTamaño(){
+        planetasTotales = new Planeta[getNumPlanetasTotales()];
+    }
 
+    public Planeta[] retornarPlanetas(){
+        return planetasTotales;
+    }
+    
     private int probabilidadAparicion() {
         int probabilidadAparicion = 0;
         probabilidadAparicion = (int) (Math.random() * 100 + 1);
@@ -78,11 +84,14 @@ public class DiseñoPlanetas {
     public boolean validarNombre(String nombrePlanet) {
         boolean nombreRepetido = false;
         String nombreActual = nombrePlanet;
+        Planeta[] momentaneo = retornarPlanetas();
                 
-        for (int i = 0; i < planetasTotales.length; i++) {
-            if (planetasTotales[i].getNombre().equals(nombreActual)) {
-                nombreRepetido = true;
-            }
+        for (int i = 0; i < momentaneo.length; i++) {
+                     
+                if (momentaneo[i].getNombre().equals(nombreActual) && momentaneo[i]!=null ) {
+                    nombreRepetido = true;
+                }
+          
         }
         return nombreRepetido;
     }
@@ -193,6 +202,7 @@ public class DiseñoPlanetas {
         int cantidadConstructores = cantidadConstructores();
         int cantidadNaves = cantidadNaves();
         int cantidadGuerreros = cantidadGuerreros();
+        System.out.println("\n\n\n");
 
         Planeta nuevoPlanet = new Planeta();
         nuevoPlanet.retornarPlaneta(tipoPlaneta, nombrePlaneta, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
@@ -216,31 +226,32 @@ public class DiseñoPlanetas {
     }
 
     public Planeta[] editarBases() {
+        Planeta[] llenadoPlanetas = retornarPlanetas();
         //Nos permite editar las primeras dos posiciones del arreglo, que corresponder al numero de jugadores.
         for (int i = 0; i < NUMERO_JUGADORES; i++) {
-            planetasTotales[i] = instanciarPlaneta();
+            llenadoPlanetas[i] = instanciarPlaneta();
         }
 
         if (planetasNeut == neutralesEdit) { //Solo neutrales manuales
             for (int i = NUMERO_JUGADORES; i < numPlanetasTotales; i++) {
-                planetasTotales[i] = instanciarPlaneta();
+                llenadoPlanetas[i] = instanciarPlaneta();
             }
 
         } else if (neutralesEdit == 0) {//Solo neutrales aleatorios
             for (int i = NUMERO_JUGADORES; i < numPlanetasTotales; i++) {
-                planetasTotales[i] = instanciarAleatorios();
+                llenadoPlanetas[i] = instanciarAleatorios();
             }
         } else { //Planetas neutrales que se editan y aleatorios
             for (int i = NUMERO_JUGADORES; i < NUMERO_JUGADORES+neutralesEdit; i++) {
-                planetasTotales[i] = instanciarPlaneta();
+                llenadoPlanetas[i] = instanciarPlaneta();
             }
 
             for (int i = NUMERO_JUGADORES+neutralesEdit; i < numPlanetasTotales; i++) {
-                planetasTotales[i] = instanciarAleatorios();
+                llenadoPlanetas[i] = instanciarAleatorios();
             }
         }
 
-        return planetasTotales;
+        return llenadoPlanetas;
     }
 
     
