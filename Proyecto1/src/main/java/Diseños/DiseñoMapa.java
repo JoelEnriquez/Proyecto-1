@@ -8,11 +8,10 @@ public class DiseñoMapa {
     private int columnas;
     private int planetasNeutrales;
     private int neutralesParaEditar;
-    private final int NUMERO_JUGADORES=2;
+    private final int NUMERO_JUGADORES = 2;
     private int numeroPlanetasTotales;
     private String nombreJugador1;
     private String nombreJugador2;
-    
 
     public DiseñoMapa(int filas, int columnas, int planetasNeutrales, int neutralesParaEditar, String nombreJugador1, String nombreJugador2) {
         this.filas = filas;
@@ -22,17 +21,19 @@ public class DiseñoMapa {
         this.nombreJugador1 = nombreJugador1;
         this.nombreJugador2 = nombreJugador2;
     }
-    
-/*
-    public DiseñoMapa() {
-        this.filas = 0;
-        this.columnas = 0;
-        this.planetasNeutrales = 0;
-        this.neutralesParaEditar = 0;
-        this.nombreJugador1 = "";
-        this.nombreJugador2 = "";      
+
+    public void crearPlanetas() {
+        ejecutarNuevoPlaneta();
     }
-*/
+
+    public Planeta[] ejecutarNuevoPlaneta() {
+        Planeta[] planetasNuevos = new Planeta[numeroPlanetasTotales];
+        DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales, neutralesParaEditar, numeroPlanetasTotales());
+        nuevoPlaneta.editarBases();
+
+        return planetasNuevos;
+    }
+
     public void setNeutralesParaEditar(int neutralesParaEditar) {
         this.neutralesParaEditar = neutralesParaEditar;
     }
@@ -80,45 +81,17 @@ public class DiseñoMapa {
     public String getNombreJugador2() {
         return nombreJugador2;
     }
-    
-    public int getNumeroJugadores(){
+
+    public int getNumeroJugadores() {
         return NUMERO_JUGADORES;
     }
-    
-    public int numeroPlanetasTotales(){
+
+    public int numeroPlanetasTotales() {
         return numeroPlanetasTotales = NUMERO_JUGADORES + planetasNeutrales;
     }
-    
-    DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales,neutralesParaEditar, numeroPlanetasTotales);
 
     public Planeta[] planetasTotales() { //Creacion de un Arreglo de Planetas con el tamaño total de Planetas
         Planeta[] planetas = new Planeta[numeroPlanetasTotales()];
         return planetas;
     }
-    
-    public void ejecutarTodo(){
-        nuevoPlaneta.editarBases();
-    }
-
-   /* public boolean ausenciaAleatoridad() {
-        boolean aleatoridad = false;
-        if (neutralesParaEditar == planetasNeutrales) {
-            aleatoridad = true;
-        }
-        return aleatoridad;
-    }
-    
-    public boolean ausenciaManualidad(){
-        boolean manualidad = false;
-        if (neutralesParaEditar!=0) {
-            manualidad=true;
-        }
-        return manualidad;
-    }
-   */
-
-    /* public double asignarPorcentajeMuerte(){
-        double porcentaje=0;
-        return porcentaje;
-    }*/
 }

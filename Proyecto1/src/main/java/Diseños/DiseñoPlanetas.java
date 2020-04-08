@@ -22,7 +22,9 @@ public class DiseñoPlanetas {
 }
 
     Scanner leer = new Scanner(System.in);
-    Planeta[] planetasTotales = new Planeta[numPlanetasTotales];
+    Planeta[] planetasTotales = new Planeta[getNumPlanetasTotales()];
+    
+    
      
 
     private int probabilidadAparicion() {
@@ -213,7 +215,7 @@ public class DiseñoPlanetas {
         return planetaAleatorio;
     }
 
-    public void editarBases() {
+    public Planeta[] editarBases() {
         //Nos permite editar las primeras dos posiciones del arreglo, que corresponder al numero de jugadores.
         for (int i = 0; i < NUMERO_JUGADORES; i++) {
             planetasTotales[i] = instanciarPlaneta();
@@ -238,7 +240,7 @@ public class DiseñoPlanetas {
             }
         }
 
-        //return planetasTotales;
+        return planetasTotales;
     }
 
     
@@ -246,4 +248,52 @@ public class DiseñoPlanetas {
     //Cantidad de Naves (1-3). De tipo Naboo-1 
     //Saber que tipo de Planeta es. Este se instancia
     //Cantidad de Guerreros.Estos dependen del tipo de planeta
+
+    public String getNombreJ1() {
+        return nombreJ1;
+    }
+
+    public void setNombreJ1(String nombreJ1) {
+        this.nombreJ1 = nombreJ1;
+    }
+
+    public String getNombreJ2() {
+        return nombreJ2;
+    }
+
+    public void setNombreJ2(String nombreJ2) {
+        this.nombreJ2 = nombreJ2;
+    }
+
+    public int getPlanetasNeut() {
+        return planetasNeut;
+    }
+
+    public void setPlanetasNeut(int planetasNeut) {
+        this.planetasNeut = planetasNeut;
+    }
+
+    public int getNeutralesEdit() {
+        return neutralesEdit;
+    }
+
+    public void setNeutralesEdit(int neutralesEdit) {
+        this.neutralesEdit = neutralesEdit;
+    }
+
+    public int getNumPlanetasTotales() {
+        return numPlanetasTotales;
+    }
+
+    public void setNumPlanetasTotales(int numPlanetasTotales) {
+        this.numPlanetasTotales = numPlanetasTotales;
+    }
+
+    public Planeta[] getPlanetasTotales() {
+        return planetasTotales;
+    }
+
+    public void setPlanetasTotales(Planeta[] planetasTotales) {
+        this.planetasTotales = planetasTotales;
+    }
 }
