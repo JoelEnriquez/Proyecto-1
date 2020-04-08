@@ -29,7 +29,7 @@ public class DiseñoPlanetas {
         planetasTotales = new Planeta[getNumPlanetasTotales()];
     }
 
-    public Planeta[] retornarPlanetas(){
+    public Planeta[] retornarArrPlanetasTotales(){
         return planetasTotales;
     }
     
@@ -68,7 +68,7 @@ public class DiseñoPlanetas {
         return nombrePlaneta;
     }
 
-    public String nombreAleatorio() {//Me lo compartio un cuate. Se llama Erick. Creditos a quien merece
+    public String nombreAleatorio() {
         String nombrePlaneta = "";
         final int caracteres = 3;
         int menor = 65, maximo = 90 + 1;
@@ -84,11 +84,11 @@ public class DiseñoPlanetas {
     public boolean validarNombre(String nombrePlanet) {
         boolean nombreRepetido = false;
         String nombreActual = nombrePlanet;
-        Planeta[] momentaneo = retornarPlanetas();
+        Planeta[] momentaneo = retornarArrPlanetasTotales();
                 
         for (int i = 0; i < momentaneo.length; i++) {
                      
-                if (momentaneo[i].getNombre().equals(nombreActual) && momentaneo[i]!=null ) {
+                if (momentaneo[i]!=null && momentaneo[i].getNombre().equals(nombreActual)) {
                     nombreRepetido = true;
                 }
           
@@ -206,7 +206,7 @@ public class DiseñoPlanetas {
 
         Planeta nuevoPlanet = new Planeta();
         nuevoPlanet.retornarPlaneta(tipoPlaneta, nombrePlaneta, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
-
+        
         return nuevoPlanet;
     }
 
@@ -226,7 +226,7 @@ public class DiseñoPlanetas {
     }
 
     public Planeta[] editarBases() {
-        Planeta[] llenadoPlanetas = retornarPlanetas();
+        Planeta[] llenadoPlanetas = retornarArrPlanetasTotales();
         //Nos permite editar las primeras dos posiciones del arreglo, que corresponder al numero de jugadores.
         for (int i = 0; i < NUMERO_JUGADORES; i++) {
             llenadoPlanetas[i] = instanciarPlaneta();
