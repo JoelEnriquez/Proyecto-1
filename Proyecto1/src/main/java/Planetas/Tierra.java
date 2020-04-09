@@ -3,12 +3,22 @@ package Planetas;
 import Guerreros.Mole;
 
 public class Tierra extends Planeta {
-    
+    private String nombre;
+    private double porcentajeMuerte;
+    private int cantidadDinero;
+    private int cantidadConstructores;
+    private int cantidadNaves;
+    private int cantidadGuerreros;
+            
     Mole soldadoMole = new Mole();
     
     public Tierra(String nombre, double porcentajeMuerte, int cantidadDinero, int cantidadConstructores, int cantidadNaves, int cantidadGuerreros) {
-        super(nombre, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
-        
+        this.nombre = nombre;
+        this.porcentajeMuerte = porcentajeMuerte;
+        this.cantidadDinero = cantidadDinero;
+        this.cantidadConstructores = cantidadConstructores;
+        this.cantidadNaves = cantidadNaves;
+        this.cantidadGuerreros = cantidadGuerreros;
     }
     
     public int generarSoldados() {

@@ -5,34 +5,34 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DiseñoPlanetas {
-
+    
     private String nombreJ1;
     private String nombreJ2;
     private int planetasNeut;
     private int neutralesEdit;
     private int numPlanetasTotales;
     private final int NUMERO_JUGADORES = 2;
-
-    public DiseñoPlanetas(String nombreJ1, String nombreJ2, int planetasNeut, int neutralesEdit, int numPlanetasTotales) {
+    
+    public DiseñoPlanetas(String nombreJ1, String nombreJ2, int planetasNeut, int neutralesEdit, int numPlanetasTotales){
         this.nombreJ1 = nombreJ1;
         this.nombreJ2 = nombreJ2;
         this.planetasNeut = planetasNeut;
         this.neutralesEdit = neutralesEdit;
         this.numPlanetasTotales = numPlanetasTotales;
-    }
+}
 
     Scanner leer = new Scanner(System.in);
-
+    
     Planeta[] planetasTotales;
-
-    public void asignarTamaño() {
+    
+    public void asignarTamaño(){
         planetasTotales = new Planeta[getNumPlanetasTotales()];
     }
 
-    public Planeta[] retornarArrPlanetasTotales() {
+    public Planeta[] retornarArrPlanetasTotales(){
         return planetasTotales;
     }
-
+    
     private int probabilidadAparicion() {
         int probabilidadAparicion = 0;
         probabilidadAparicion = (int) (Math.random() * 100 + 1);
@@ -63,8 +63,9 @@ public class DiseñoPlanetas {
         do {
             System.out.println("Ingrese el nombre del Planeta");
             nombrePlaneta = leer.next();
+            
         } while (validarNombre(nombrePlaneta) != false);
-        
+
         return nombrePlaneta;
     }
 
@@ -72,12 +73,12 @@ public class DiseñoPlanetas {
         String nombrePlaneta = "";
         final int caracteres = 3;
         int menor = 65, maximo = 90 + 1;
-
+        
         for (int i = 0; i < caracteres; i++) {
             int codigoAscii = ThreadLocalRandom.current().nextInt(menor, maximo);
             nombrePlaneta = nombrePlaneta + (char) codigoAscii;
         }
-
+        
         return nombrePlaneta;
     }
 
@@ -85,17 +86,17 @@ public class DiseñoPlanetas {
         boolean nombreRepetido = false;
         String nombreActual = nombrePlanet;
         Planeta[] momentaneo = retornarArrPlanetasTotales();
-
+                
         for (int i = 0; i < momentaneo.length; i++) {
-
-            if (momentaneo[i] != null) {
+                     
+                if (momentaneo[i] != null) {
                 if (momentaneo[i].getNombre().equals(nombreActual)) {
                     nombreRepetido = true;
-                    System.out.println("EL NOMBRE DEL PLANETA YA EXISTE, INGRESE UNO NUEVO");
+                    System.out.println("Lo siento, el nombre ya existe. Ingrese uno valido");
                     break;
                 }
             }
-
+          
         }
         return nombreRepetido;
     }
@@ -155,32 +156,36 @@ public class DiseñoPlanetas {
 
         return guerrerosIniciales;
     }
-
-    public int cantidadGuerrerosRandom(String planeta) {
+    
+    public int cantidadGuerrerosRandom(String planeta){
         Planeta metodo = new Planeta();
-        int min = 0;
+        int min= 0;
         int max = 0;
-
+        
         if (planeta.equals("Tierra")) {
-            min = 15;
-            max = 25;
-        } else if (planeta.equals("Agua")) {
-            min = 12;
-            max = 23;
-        } else if (planeta.equals("Fuego")) {
-            min = 10;
-            max = 20;
-        } else if (planeta.equals("Organico")) {
-            min = 5;
-            max = 15;
-        } else {
-            min = 3;
-            max = 9;
+           min=15;
+           max= 25;
         }
-
+        else if (planeta.equals("Agua")) {
+            min=12;
+            max=23;
+        }
+        else if (planeta.equals("Fuego")) {
+            min=10;
+            max=20;
+        }
+        else if (planeta.equals("Organico")) {
+            min=5;
+            max=15;
+        }
+        else{
+            min=3;
+            max=9;
+        }
+        
         int guerrerosIniciales = metodo.generarSoldados(min, max);
-
-        return guerrerosIniciales;
+                
+       return guerrerosIniciales;
     }
 
     public double generarPorcentajeMuerte() {
@@ -202,12 +207,12 @@ public class DiseñoPlanetas {
         int cantidadConstructores = cantidadConstructores();
         int cantidadNaves = cantidadNaves();
         int cantidadGuerreros = cantidadGuerreros();
-        System.out.println("\n\n\n");
-        
+        System.out.println("\n\n\n\n\n\n");
+
         Planeta nuevoPlanet = new Planeta();
         Planeta planeta;
         planeta = nuevoPlanet.retornarPlaneta(tipoPlaneta, nombrePlaneta, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
-
+        
         return planeta;
     }
 
@@ -243,11 +248,11 @@ public class DiseñoPlanetas {
                 llenadoPlanetas[i] = instanciarAleatorios();
             }
         } else { //Planetas neutrales que se editan y aleatorios
-            for (int i = NUMERO_JUGADORES; i < NUMERO_JUGADORES + neutralesEdit; i++) {
+            for (int i = NUMERO_JUGADORES; i < NUMERO_JUGADORES+neutralesEdit; i++) {
                 llenadoPlanetas[i] = instanciarPlaneta();
             }
 
-            for (int i = NUMERO_JUGADORES + neutralesEdit; i < numPlanetasTotales; i++) {
+            for (int i = NUMERO_JUGADORES+neutralesEdit; i < numPlanetasTotales; i++) {
                 llenadoPlanetas[i] = instanciarAleatorios();
             }
         }
@@ -255,10 +260,12 @@ public class DiseñoPlanetas {
         return llenadoPlanetas;
     }
 
+    
     //Cantidad de constructores=1. De tipo Obrero 
     //Cantidad de Naves (1-3). De tipo Naboo-1 
     //Saber que tipo de Planeta es. Este se instancia
     //Cantidad de Guerreros.Estos dependen del tipo de planeta
+
     public String getNombreJ1() {
         return nombreJ1;
     }
