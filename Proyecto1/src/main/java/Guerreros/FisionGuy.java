@@ -6,18 +6,25 @@ public class FisionGuy extends Guerrero {
     private final int ESPACIO_EN_NAVE = 4;
     private double valorMuerte;
 
-    public FisionGuy() {
-        super(1.95, 4);
+    public FisionGuy(double porcentajeMuerte) {
+       double factorMuerte = getFactorMuerte();
+        int espacioEnNave = getEspacioEnNave();
+        valorMuerte = porcentajeMuerte * factorMuerte;
     }
 
     @Override
-    public double getValorMuerte() {
+    public double getFactorMuerte() {
+        return FACTOR_MUERTE;
+    }
+    
+    @Override
+    public int getEspacioEnNave(){
+        return ESPACIO_EN_NAVE;
+    }
+
+    @Override
+    public double getValorMuerte(){
         return valorMuerte;
-    }
-
-    @Override
-    public void setValorMuerte(double valorMuerte) {
-        this.valorMuerte = valorMuerte;
     }
 
 }

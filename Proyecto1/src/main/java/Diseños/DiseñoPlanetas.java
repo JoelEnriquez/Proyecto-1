@@ -205,9 +205,9 @@ public class DiseñoPlanetas {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n");
 
         Planeta nuevoPlanet = new Planeta();
-        Planeta planetaLleno;
-        planetaLleno = nuevoPlanet.retornarPlaneta(tipoPlaneta, nombrePlaneta,propietario, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
-
+        //Planeta planetaLleno = new Planeta();
+        //planetaLleno.setTipoPlaneta(tipoPlaneta);
+        Planeta planetaLleno = nuevoPlanet.retornarPlaneta(tipoPlaneta, nombrePlaneta,propietario, porcentajeMuerte, cantidadDinero, cantidadConstructores, cantidadNaves, cantidadGuerreros);
         return planetaLleno;
     }
 

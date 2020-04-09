@@ -6,9 +6,8 @@ public class Guerrero {
     private double valorMuerte;
     private int espacioEnNave;
 
-    public Guerrero(double factorMuerte, int espacioEnNave) {
-        this.factorMuerte = factorMuerte;
-        this.espacioEnNave = espacioEnNave;
+    public Guerrero() {
+        
     }
 
     public double getFactorMuerte() {

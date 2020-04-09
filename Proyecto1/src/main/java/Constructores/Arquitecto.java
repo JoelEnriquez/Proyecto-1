@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Constructores;
 
-/**
- *
- * @author joel
- */
+import Naves.MillenialFalcon;
+import Naves.Nave;
+
+
 public class Arquitecto extends Constructor {
+    private int turnosProduccion =1;
+    private int precioAdquirir=250;
+    private int precioVenta = 175;
+    private Nave tipoNave = new MillenialFalcon(); 
+
     
+    public int getTurnosProduccion() {
+        return turnosProduccion;
+    }
+
+    public int getPrecioAdquirir() {
+        return precioAdquirir;
+    }
+
+    public int getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public Nave getTipoNave() {
+        return tipoNave;
+    }
 }

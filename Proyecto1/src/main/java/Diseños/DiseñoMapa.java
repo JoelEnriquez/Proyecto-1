@@ -23,12 +23,12 @@ public class DiseñoMapa {
         this.nombreJugador2 = nombreJugador2;
     }
 
-    public void crearPlanetas() {
-        ejecutarNuevoPlaneta();
+    public void ejecutarCreacionPlanetas() {
+        elaborarPlanetas();
     }
 
-    public Planeta[] ejecutarNuevoPlaneta() {
-        Planeta[] planetasNuevos = new Planeta[numeroPlanetasTotales];
+    public Planeta[] elaborarPlanetas() {
+        Planeta[] planetasNuevos = new Planeta[numeroPlanetasTotales()];
         
         DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales, neutralesParaEditar, numeroPlanetasTotales());  
         nuevoPlaneta.asignarTamaño();
@@ -37,9 +37,9 @@ public class DiseñoMapa {
         return planetasNuevos;
     }
     
-    public void crearMapa(){
-        Mapa nuevoMapa = new Mapa(getFilas(), getColumnas(), getPlanetasNeutrales(),ejecutarNuevoPlaneta());
-        
+    public Mapa crearMapa(){
+        Mapa nuevoMapa = new Mapa(getFilas(), getColumnas(), getPlanetasNeutrales(),elaborarPlanetas());
+        return nuevoMapa;
     }
 
     public void setNeutralesParaEditar(int neutralesParaEditar) {

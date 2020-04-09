@@ -3,6 +3,7 @@ package Main;
 import Tablero.ControladorMapas;
 import Diseños.DiseñoMapa;
 import Tablero.Jugar;
+import Tablero.Mapa;
 import java.util.Scanner;
 
 public class EmpezarJuego {
@@ -121,21 +122,16 @@ public class EmpezarJuego {
                         
                         System.out.println("");
                         DiseñoMapa diseñoMapa = new DiseñoMapa(filas, columnas, planetasNeutrales, neutralesParaEditar,jugador1, jugador2);
-                        diseñoMapa.crearPlanetas();
-                        /*diseñoMapa.setNombreJugador1(jugador1);
-                        diseñoMapa.setNombreJugador2(jugador2);
-                        diseñoMapa.setFilas(filas);
-                        diseñoMapa.setColumnas(columnas);
-                        diseñoMapa.setPlanetasNeutrales(planetasNeutrales);
-                        diseñoMapa.setNeutralesParaEditar(neutralesParaEditar);
+                        diseñoMapa.ejecutarCreacionPlanetas();
                         
-                        //System.out.println(diseñoMapa);
-                        /*diseñoMapa.setFilas(filas);
-                        diseñoMapa.setColumnas(columnas);
-                        diseñoMapa.setPlanetasNeutrales(planetasNeutrales);
-                        diseñoMapa.setNeutralesEditados(neutralesEditados);
-                         */
-
+                        Mapa nuevoMapa;//Creacion objeto tipo Mapa para recibir el mapa creado en diseñoMapa
+                        nuevoMapa = diseñoMapa.crearMapa();
+                        
+                        ControladorMapas mandarMapa = new ControladorMapas();
+                        mandarMapa.setMapa(nuevoMapa);
+                        mandarMapa.ingresarMapa();
+                        
+                        
                         //Editar un mapa ya existente
                     } else if (decision.equalsIgnoreCase("2")) {
 

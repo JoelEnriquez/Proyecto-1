@@ -51,7 +51,7 @@ import java.util.concurrent.ThreadLocalRandom;
         }
           else{
               tipoPlaneta = new Radioactivo(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);
-          }
+          }         
           
         return tipoPlaneta;
     }

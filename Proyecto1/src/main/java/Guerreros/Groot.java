@@ -7,18 +7,25 @@ public class Groot extends Guerrero{
     private final int ESPACIO_EN_NAVE = 3;
     double valorMuerte;
     
-    public Groot() {
-        super(1.85, 3);
+    public Groot(double porcentajeMuerte) {
+       double factorMuerte = getFactorMuerte();
+        int espacioEnNave = getEspacioEnNave();
+        valorMuerte = porcentajeMuerte * factorMuerte;
     }
 
     @Override
-    public double getValorMuerte() {
+    public double getFactorMuerte() {
+        return FACTOR_MUERTE;
+    }
+    
+    @Override
+    public int getEspacioEnNave(){
+        return ESPACIO_EN_NAVE;
+    }
+
+    @Override
+    public double getValorMuerte(){
         return valorMuerte;
-    }
-
-    @Override
-    public void setValorMuerte(double valorMuerte) {
-        this.valorMuerte = valorMuerte;
     }
     
     

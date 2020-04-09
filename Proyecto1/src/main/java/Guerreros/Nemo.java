@@ -1,26 +1,29 @@
 package Guerreros;
 
 public class Nemo extends Guerrero{
-    private double FACTOR_MUERTE = 1.6;
-    private  int ESPACIO_EN_NAVE = 1;
+    private final double FACTOR_MUERTE = 1.6;
+    private final  int ESPACIO_EN_NAVE = 1;
     private double valorMuerte;
 
+    public Nemo(double porcentajeMuerte) {
+        double factorMuerte = getFactorMuerte();
+        int espacioEnNave = getEspacioEnNave();
+        valorMuerte = porcentajeMuerte * factorMuerte;
+    }
+
+    @Override
+    public double getFactorMuerte() {
+        return FACTOR_MUERTE;
+    }
     
-        double factorMuerte = FACTOR_MUERTE;
-        int espacioEnNave = ESPACIO_EN_NAVE;
-
-    public Nemo(double factorMuerte, int espacioEnNave) {
-        super(factorMuerte, espacioEnNave);
+    @Override
+    public int getEspacioEnNave(){
+        return ESPACIO_EN_NAVE;
     }
 
     @Override
-    public double getValorMuerte() {
+    public double getValorMuerte(){
         return valorMuerte;
-    }
-
-    @Override
-    public void setValorMuerte(double valorMuerte) {
-        this.valorMuerte = valorMuerte;
     }
 
 }

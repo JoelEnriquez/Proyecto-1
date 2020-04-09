@@ -5,13 +5,15 @@ import Guerreros.Guerrero;
 public class Nave {
     private double velocidadTransporte;
     private int capacidadTransporte;
+    private int costoProduccion;
+    
     Guerrero[] guerrerosParaPelear;
     //Las naves son producidad por los constructores
 
-    public Nave(double velocidadTransporte, int capacidadTransporte, Guerrero[] guerrerosParaPelear) {
-        this.velocidadTransporte = velocidadTransporte;
-        this.capacidadTransporte = capacidadTransporte;
-        this.guerrerosParaPelear = guerrerosParaPelear;
+    public Nave() {
+        getCapacidadTransporte();
+        getCostoProduccion();
+        getVelocidadTransporte();
     }
 
     public double getVelocidadTransporte() {
@@ -37,6 +39,12 @@ public class Nave {
     public void setGuerrerosParaPelear(Guerrero[] guerrerosParaPelear) {
         this.guerrerosParaPelear = guerrerosParaPelear;
     }
-    
-    
+
+    public int getCostoProduccion() {
+        return costoProduccion;
+    }
+
+    public void setCostoProduccion(int costoProduccion) {
+        this.costoProduccion = costoProduccion;
+    }
 }

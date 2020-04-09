@@ -5,7 +5,7 @@ public class Mapa {
     private int filas;
     private int columnas;
     private int numeroNeutrales;
-    private int numeroBases;
+    private int numeroBases =2;
     private Planeta[] planetas;
 
     
