@@ -1,6 +1,7 @@
 package Diseños;
 
 import Planetas.Planeta;
+import Tablero.Mapa;
 
 public class DiseñoMapa {
 
@@ -31,9 +32,14 @@ public class DiseñoMapa {
         
         DiseñoPlanetas nuevoPlaneta = new DiseñoPlanetas(nombreJugador1, nombreJugador2, planetasNeutrales, neutralesParaEditar, numeroPlanetasTotales());  
         nuevoPlaneta.asignarTamaño();
-        nuevoPlaneta.editarBases();
+        planetasNuevos = nuevoPlaneta.editarBases();
 
         return planetasNuevos;
+    }
+    
+    public void crearMapa(){
+        Mapa nuevoMapa = new Mapa(getFilas(), getColumnas(), getPlanetasNeutrales(),ejecutarNuevoPlaneta());
+        
     }
 
     public void setNeutralesParaEditar(int neutralesParaEditar) {
@@ -90,10 +96,5 @@ public class DiseñoMapa {
 
     public int numeroPlanetasTotales() {
         return numeroPlanetasTotales = NUMERO_JUGADORES + planetasNeutrales;
-    }
-
-    public Planeta[] planetasTotales() { //Creacion de un Arreglo de Planetas con el tamaño total de Planetas
-        Planeta[] planetas = new Planeta[numeroPlanetasTotales()];
-        return planetas;
     }
 }

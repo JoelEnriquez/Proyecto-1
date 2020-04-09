@@ -73,10 +73,10 @@ public class EmpezarJuego {
                         while (!seguir) {
                             System.out.println("\nEscoja un numero de filas");
                             filas = lectura.nextInt();
-                            if (filas > 0) {
+                            if (filas > 1) {
                                 seguir = true;
                             } else {
-                                System.out.println("Porfavor, elija un numero de filas mayor a 0.\n");
+                                System.out.println("Porfavor, elija un numero de filas mayor a 1.\n");
                             }
                         }
                         seguir = false;
@@ -85,10 +85,10 @@ public class EmpezarJuego {
                         while (!seguir) {
                             System.out.println("\nElija el numero de columnas");
                             columnas = lectura.nextInt();
-                            if (columnas > 0) {
+                            if (columnas > 1) {
                                 seguir = true;
                             } else {
-                                System.out.println("Porfavor, elija un numero de columnas mayor a 0.\n");
+                                System.out.println("Porfavor, elija un numero de columnas mayor a 1.\n");
                             }
                         }
                         seguir = false;

@@ -1,4 +1,3 @@
-
 package Planetas;
 
 import Constructores.Constructor;
@@ -21,8 +20,9 @@ import java.util.concurrent.ThreadLocalRandom;
     private Constructor[] constructor;
 
 
-    public Planeta(String nombre, double porcentajeMuerte, int cantidadDinero, int cantidadConstructores, int cantidadNaves, int cantidadGuerreros) {
+    public Planeta(String nombre,String propietario,  double porcentajeMuerte, int cantidadDinero, int cantidadConstructores, int cantidadNaves, int cantidadGuerreros) {
         this.nombre = nombre;
+        this.propietario = propietario;
         this.porcentajeMuerte = porcentajeMuerte;
         this.cantidadDinero = cantidadDinero;
         this.cantidadConstructores = cantidadConstructores;
@@ -34,32 +34,38 @@ import java.util.concurrent.ThreadLocalRandom;
         
     }
     
-    public Planeta retornarPlaneta(String tipoP, String nombreP, double porcMuerte, int Dinero, int cantConst, int naves, int cantGuerr ){
-          Planeta tipoPlaneta = null;
+    public Planeta retornarPlaneta(String tipoP, String nombreP, String dueño , double porcMuerte, int Dinero, int cantConst, int naves, int cantGuerr ){
+          Planeta tipoPlaneta;
           
           if (tipoP.equals("Tierra")) {
-            tipoPlaneta = new Tierra(nombreP, porcMuerte, Dinero, cantConst, naves, cantGuerr);
+            tipoPlaneta = new Tierra(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);
          }
           else if (tipoP.equals("Agua")) {
-              tipoPlaneta = new Agua(nombreP, porcMuerte, Dinero, cantConst, naves, cantGuerr);
+              tipoPlaneta = new Agua(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);
         }
           else if (tipoP.endsWith("Fuego")) {
-              tipoPlaneta = new Fuego(nombreP, porcMuerte, Dinero, cantConst, naves, cantGuerr);     
+              tipoPlaneta = new Fuego(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);     
         }
           else if (tipoP.equals("Organico")) {
-            tipoPlaneta = new Organico(nombreP, porcMuerte, Dinero, cantConst, naves, cantGuerr);
+            tipoPlaneta = new Organico(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);
         }
           else{
-              tipoPlaneta = new Radioactivo(nombreP, porcMuerte, Dinero, cantConst, naves, cantGuerr);
+              tipoPlaneta = new Radioactivo(nombreP,dueño, porcMuerte, Dinero, cantConst, naves, cantGuerr);
           }
           
         return tipoPlaneta;
     }
     
     public int generarSoldados(int min, int max){
-        int soldadosGenerados = 0;
+        int soldadosGenerados;
         soldadosGenerados = ThreadLocalRandom.current().nextInt(min, max+1);
         return soldadosGenerados;
+    }
+    
+    public int generarDinero(int min, int max){
+        int dineroProducido;
+        dineroProducido = ThreadLocalRandom.current().nextInt(min, max+1);
+        return dineroProducido;
     }
     
     public String getNombre() {

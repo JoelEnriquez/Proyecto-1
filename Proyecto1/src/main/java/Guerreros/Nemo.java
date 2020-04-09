@@ -1,12 +1,16 @@
 package Guerreros;
 
 public class Nemo extends Guerrero{
-    private final double FACTOR_MUERTE = 1.6;
-    private final int ESPACIO_EN_NAVE = 1;
+    private double FACTOR_MUERTE = 1.6;
+    private  int ESPACIO_EN_NAVE = 1;
     private double valorMuerte;
 
-    public Nemo() {
-        super(1.6, 1);
+    
+        double factorMuerte = FACTOR_MUERTE;
+        int espacioEnNave = ESPACIO_EN_NAVE;
+
+    public Nemo(double factorMuerte, int espacioEnNave) {
+        super(factorMuerte, espacioEnNave);
     }
 
     @Override
